@@ -71,7 +71,6 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
       try {
         switch (event.camera) {
           case CameraTrigger.firstCamera:
-            // await firstController.dispose();
             singeCameraController =
                 VlcPlayerController.network(firstController.dataSource);
             emit(state.copyWith(
@@ -81,7 +80,6 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
             ));
             break;
           case CameraTrigger.secondCamera:
-            // await secondController.dispose();
             singeCameraController =
                 VlcPlayerController.network(secondController.dataSource);
 
@@ -112,10 +110,11 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
   }
 
   void setUpControllers() {
-    firstController =
-        VlcPlayerController.network('rtsp://178.141.80.235:55554/Esd93HFV_s/');
-    secondController =
-        VlcPlayerController.network('rtsp://178.141.80.235:55555/md5IffuT_s/');
-    singeCameraController = VlcPlayerController.network('');
+    firstController = VlcPlayerController.network(
+        'rtsp://178.141.80.235:55554/Esd93HFV_s/',
+        options: VlcPlayerOptions());
+    secondController = VlcPlayerController.network(
+        'rtsp://178.141.80.235:55555/md5IffuT_s/',
+        options: VlcPlayerOptions());
   }
 }

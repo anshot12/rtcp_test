@@ -15,16 +15,10 @@ class CameraCard extends StatelessWidget {
     switch (camera) {
       case CameraTrigger.firstCamera:
         return _BaseCameraCard(
-            objectKey: key,
-            camera: camera,
-            name: 'Камера 1',
-            controller: controller);
+            camera: camera, name: 'Камера 1', controller: controller);
       case CameraTrigger.secondCamera:
         return _BaseCameraCard(
-            objectKey: key,
-            camera: camera,
-            name: 'Камера 2',
-            controller: controller);
+            camera: camera, name: 'Камера 2', controller: controller);
       default:
         return Container();
     }
@@ -33,15 +27,11 @@ class CameraCard extends StatelessWidget {
 
 // Базовый виджет камеры
 class _BaseCameraCard extends StatelessWidget {
-  final Key? objectKey;
   final CameraTrigger camera;
   final VlcPlayerController controller;
   final String name;
   const _BaseCameraCard(
-      {required this.camera,
-      required this.controller,
-      required this.name,
-      required this.objectKey});
+      {required this.camera, required this.controller, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +58,6 @@ class _BaseCameraCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(24),
                 child: VlcPlayer(
-                  key: objectKey,
                   virtualDisplay: false,
                   controller: controller,
                   aspectRatio: 1.22,

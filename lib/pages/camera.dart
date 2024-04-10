@@ -23,7 +23,6 @@ class CameraPage extends StatelessWidget {
           if (state.stateType == StateType.loaded) {
             return Center(
                 child: CameraCard(
-              key: const ObjectKey('single'),
               camera: state.camera!,
               controller: context.read<CameraBloc>().singeCameraController,
             ));
